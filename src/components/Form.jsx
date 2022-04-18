@@ -7,24 +7,20 @@ const Form = () => {
   });
 
   const handleChange = (e) => {
-    if (e.target.id === "username") {
-      setForm({
-        ...form,
-        username: e.target.value,
-      });
-    }
+    setForm({
+      ...form,
+      [e.target.id]: e.target.value,
+    });
+  };
 
-    if (e.target.id === "age") {
-      setForm({
-        ...form,
-        age: e.target.value,
-      });
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
   };
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
           value={form.username}
