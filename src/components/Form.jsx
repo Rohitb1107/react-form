@@ -1,10 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Form = () => {
+function App() {
   const [form, setForm] = useState({
-    username: "",
+    name: "",
     age: "",
+    address: "",
+    salary: "",
+    martialstate: "",
   });
+  // const [name, setName] = useState("");
+  // const [headingText, setHeading] = useState("");
 
   const handleChange = (e) => {
     setForm({
@@ -13,33 +18,60 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // function handleChange(event) {
+  //   console.log(event.target.value);
+  //   setName(event.target.value);
+  // }
+
+  function handleClick(event) {
+    // setHeading(name);
+    // event.preventDefault();
     console.log(form);
-  };
+  }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+      <h1>Hello</h1>
+      <form onSubmit={handleClick}>
         <input
           onChange={handleChange}
-          value={form.username}
           type="text"
-          placeholder="Enter Username"
-          id="username"
+          placeholder="What's your name?"
+          value={form.name}
         />
+
         <input
           onChange={handleChange}
-          value={form.age}
           type="number"
-          placeholder="Enter Age"
-          id="age"
+          placeholder="Age"
+          value={form.age}
         />
 
-        <input type="submit" value="Submit" />
-      </form>
-    </>
-  );
-};
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="Address"
+          value={form.address}
+        />
 
-export default Form;
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="Salary"
+          value={form.salary}
+        />
+
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="Martial state"
+          value={form.martialstate}
+        />
+        <button type="submit">Submit</button>
+        <div>{headingText}</div>
+      </form>
+    </div>
+  );
+}
+
+export default App;
